@@ -1,0 +1,11 @@
+.item{
+background-color: seashell;
+}
+.item img{
+    height: 60px;
+    width: 100px;
+    border-radius: 80px;
+}
+.selectedPage{
+    font-weight: bold;
+}

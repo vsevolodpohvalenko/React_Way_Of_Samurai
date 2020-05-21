@@ -1,0 +1,29 @@
+
+    .item{
+        color: slategray;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    .item img{
+        height: 50px;
+        width: auto;
+        border-radius: 50%;
+    }
+    .likes  {
+       width: 40px;
+       height: auto;
+       margin-top: -40px;
+        
+    }
+    .likeform{
+        text-decoration: none;
+        color: crimson;
+    }
+    .border{
+        background-color: ghostwhite;
+        border-radius: 5px;
+        border: black solid 2px;
+        margin-bottom: 5px;
+        width: 300px;
+        margin-left: 1%;
+        height: auto;
+    }

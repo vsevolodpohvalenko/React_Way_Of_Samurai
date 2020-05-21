@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Farro&display=swap');
+.nav{
+    grid-area: n;
+    background-color: rosybrown;
+    padding: 20px;
+  
+  }
+  .item a{
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+      font-family: 'Farro', sans-serif;
+  }
+  .item a.activeLink{
+    color:rgb(255, 255, 255)   ;
+    text-decoration: none;
+    font-family: 'Farro', sans-serif;
+}

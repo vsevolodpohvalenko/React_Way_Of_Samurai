@@ -1,0 +1,29 @@
+.bcol{
+    background-color: greenyellow;
+    border: greenyellow;
+    border-radius: 3px;
+    width: 70px;
+    height: 30px;
+    margin-left: 525px;
+    margin-top: 2px;
+    font-family: 'Farro', sans-serif;
+    
+}
+.main{
+    display: flex;
+}
+.main img{
+    border-radius: 20%;
+    width: 120px;
+    height: auto;
+}
+.tex{
+    
+    width: 590px;
+    height: 100px;
+    font-family: 'Farro', sans-serif;
+}
+.item{
+    font-family: 'Farro', sans-serif;
+    color: black;
+}
