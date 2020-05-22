@@ -15,6 +15,7 @@ export const usersAPI =  {
 
     },
     follow : (id) => {
+        debugger
         return Instance.post(`follow/${id}`)
     },
     unfollow : (id) => {
@@ -32,7 +33,7 @@ export const profileAPI = {
 }
 export const AuthAPI = {
     Auth : () => {
-        return Instance.get(`auth/me`).then(response => {return response.data})},
+        return Instance.get(`auth/me`)},
     login : (email, password, rememberMe= false ) => {
         return Instance.post(`auth/login`, {email, password, rememberMe})
     },

@@ -44,4 +44,4 @@ let mapStateToProps = (state) =>({
   isAuth:  state.auth.isAuth
  })
 
- export default compose(connect(mapStateToProps, {setUserProfile,MyProfile, getStatus, updateStatus }), withRouter, WithAuthRedirect)(ProfileContainer)
+ export default compose( withRouter, connect(mapStateToProps, {setUserProfile,MyProfile, getStatus, updateStatus }), WithAuthRedirect)(ProfileContainer)

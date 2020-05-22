@@ -1,4 +1,4 @@
-import {AuthAPI, usersAPI} from "../api/api"
+import {usersAPI} from "../api/api"
 
 const FOLLOW = "FOLLOW"
 const UNFOLLOW = "UNFOLLOW"
@@ -21,6 +21,7 @@ const UsersReducer = (state = initialState, action) => {
     switch (action.type) {
         case FOLLOW:
             return {
+                
                 ...state,
                 users: state.users.map(u => {
                     if (u.id === action.userId) {
@@ -45,7 +46,6 @@ const UsersReducer = (state = initialState, action) => {
             return {...state, users: action.users}
         }
         case SET_CURRENT_PAGE: {
-            debugger
             return {...state, currentPage: action.currentPage}
         }
         case SET_TOTAL_USERS_COUNT: {
@@ -96,7 +96,7 @@ export const follow = (id) => {
     return async (dispatch) => {
         dispatch(ToogleFollowingProgress(true, id))
         let data = await usersAPI.follow(id)
-        if (data.resultCode === 0) {
+        if (data.data.resultCode === 0) {
             dispatch(followSuccess(id));
         }
         dispatch(ToogleFollowingProgress(false, id))
@@ -107,7 +107,8 @@ export const unfollow = (id) => {
     return async (dispatch) => {
         dispatch(ToogleFollowingProgress(true, id))
        let data = await usersAPI.unfollow(id)
-            if (data.resultCode === 0) {
+       debugger
+            if (data.data.resultCode === 0) {
                 dispatch(unfollowSuccess(id));
             }
             dispatch(ToogleFollowingProgress(false, id))

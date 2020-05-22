@@ -12,17 +12,17 @@ import LoginPage from './login/login';
 
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import {initializeApp} from "./AppReducer";
+import {initialiseApp} from "./AppReducer";
 import Preloader from "./components/preloader/Preloader";
 
 
 
 class App extends Component {
     componentDidMount() {
-        this.props.initializeApp()
+        this.props.initialiseApp()
     }
     render() {
-        if (this.props.initialized) {
+        if (this.props.initialised) {
             return (
                 <div className='app-wrapper'>
                     <HeaderContainer/>
@@ -44,11 +44,11 @@ class App extends Component {
     }
 }
 const mapStateToProps = (state) => {
-    debugger
+
     return {
 
-        initialized : state.App.initialized
+        initialised : state.App.initialised
     }
 }
 
-export default compose( withRouter, connect( mapStateToProps , {initializeApp}))(App)
+export default compose( withRouter, connect( mapStateToProps , {initialiseApp}))(App)

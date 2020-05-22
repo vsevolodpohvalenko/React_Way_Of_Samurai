@@ -6,7 +6,7 @@ import Preloader from '../../preloader/Preloader';
 import { Field, reduxForm } from 'redux-form';
 import { required, maxLengthCreator } from '../../../utils/validators';
 import { TextArea } from '../../preloader/FormControls';
-const MyPosts = React.memo((props) =>{
+const MyPosts = (props) =>{
 let AddPost = (values) => {
   props.addPost(values.postMessage)
 }
@@ -34,7 +34,7 @@ return <div className={s.item}>
                 { postElements }
             </div>
   </div>
-})
+}
 let maxLengthCreator10 = maxLengthCreator(10)
 const AddPostForm = (props) =>{
  return <form action="" onSubmit ={props.handleSubmit}>
