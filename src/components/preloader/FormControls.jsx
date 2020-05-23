@@ -2,11 +2,11 @@ import React from 'react'
 import s from './FormControls.module.css'
 import {Field} from "redux-form";
 import {required} from "../../utils/validators";
-const FormControl = ({input, meta,  ...props}) => {
-    const indicate = meta.error && meta.touched
+const FormControl = ({input, meta: {touched, error},  children }) => {
+    const indicate = error && touched
     return <div className ={s.formControl + ' ' + (indicate ? s.error : "")}>
-        <div>{props.children}</div>
-    {indicate && <span>{meta.error}</span>}
+        <div>{children}</div>
+    {indicate && <span>{error}</span>}
     </div>
 }
 export const TextArea = (props) => {
