@@ -3,7 +3,7 @@ import React from 'react'
 import s from './Pagenator.module.css'
 
 const Pagenator = ({totalUsersCount,pageSize,currentPage, onPageChanged,...props}) => {
-    let pagesCount = Math.ceil ((totalUsersCount/30) / pageSize);
+    let pagesCount = Math.ceil ((totalUsersCount/10) / pageSize);
     let pages = [];
     for (let i=1; i <= pagesCount; i++) {
         pages.push(i);
