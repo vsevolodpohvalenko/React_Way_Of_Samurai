@@ -12,10 +12,11 @@ export const getPageSize = (state) => {
   return state.usersPage.pageSize;
 }
 export const getTotalUsersCount = (state) => {
+  debugger
   return state.usersPage.totalUsersCount;
 }
 export const getCurrentPage = (state) => {
-  return state.usersPage.CurrentPage;
+  return state.usersPage.currentPage;
 }
 export const getIsFetching = (state) => {
   return state.usersPage.isFetching;
