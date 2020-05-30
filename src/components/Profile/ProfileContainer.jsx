@@ -1,7 +1,7 @@
-import React, {Component } from 'react';
+import React from 'react';
 import Profile from './Profile';
 import { connect } from 'react-redux';
-import {setUserProfile, MyProfile, getStatus, updateStatus} from '../../redux/profile_reducer'
+import {setUserProfile, MyProfile, getStatus, updateStatus, SavePhoto, SaveProfile} from '../../redux/profile_reducer'
 import { withRouter } from 'react-router-dom';
 import { WithAuthRedirect } from '../../HOC/WithAuthRedirect';
 import { compose } from 'redux';
@@ -9,24 +9,28 @@ import { compose } from 'redux';
  
 
 class ProfileContainer extends React.Component {
-
+refreshProfile () {
+    let userId = this.props.match.params.userId;
+    if (!userId){
+        userId = this.props.MyID;
+        if (!userId) {
+            this.props.history.push("/Login")
+        }
+    }
+    this.props.MyProfile(userId)
+    this.props.getStatus(userId)
+}
   componentDidMount() {
-let userId = this.props.match.params.userId;
-if (!userId){
-  userId = this.props.MyID;
-  if (!userId) {
-    this.props.history.push("/Login")
-  }
-}
-this.props.MyProfile(userId)
-this.props.getStatus(userId)
+this.refreshProfile()
 
 }
-   render() {
+
+
+    render() {
      return (
        <div>
-         
-         <Profile {...this.props.profile} profile= {this.props.profile} status = {this.props.status} updateStatus ={this.props.updateStatus} />
+
+         <Profile {...this.props.profile} SaveProfile={ this.props.SaveProfile} SavePhoto = {this.props.SavePhoto} isOwner = {!this.props.match.params.userId} profile= {this.props.profile} status = {this.props.status} updateStatus ={this.props.updateStatus} />
        </div>
      )
    }
@@ -39,9 +43,10 @@ this.props.getStatus(userId)
 //  })
 let mapStateToProps = (state) =>({
   profile: state.ProfilePage.profile,
-  status: state.ProfilePage.status, 
+  status: state.ProfilePage.status,
   MyID: state.auth.userId,
-  isAuth:  state.auth.isAuth
+  isAuth:  state.auth.isAuth,
+
  })
 
- export default compose( withRouter, connect(mapStateToProps, {setUserProfile,MyProfile, getStatus, updateStatus }), WithAuthRedirect)(ProfileContainer)
+ export default compose( withRouter, connect(mapStateToProps, {setUserProfile,MyProfile, SavePhoto, SaveProfile, getStatus, updateStatus }), WithAuthRedirect)(ProfileContainer)

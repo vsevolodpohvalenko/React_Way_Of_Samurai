@@ -29,15 +29,32 @@ export const profileAPI = {
         return Instance.get(`profile/status/${id}`)},
     updateStatus :(status) =>{
        return Instance.put(`profile/status`, {status: status})
+    },
+    SaveProfile : (profile) => {
+        debugger
+      return Instance.put("profile", profile)
+    },
+
+
+    SavePhoto : (photos) => {
+        let formData = new FormData()
+        formData.append("image", photos)
+        return Instance.put("profile/photo", formData)
     }
 }
 export const AuthAPI = {
     Auth : () => {
         return Instance.get(`auth/me`)},
-    login : (email, password, rememberMe= false ) => {
-        return Instance.post(`auth/login`, {email, password, rememberMe})
+    login : (email, password, rememberMe= false, captcha = null ) => {
+        return Instance.post(`auth/login`, {email, password, rememberMe, captcha})
     },
+
     logout : () => {
         return Instance.delete(`auth/login`)
+    }
+}
+export const  SecurityAPI = {
+    getCaptcha() {
+        return Instance.get("security/get-captcha-url")
     }
 }

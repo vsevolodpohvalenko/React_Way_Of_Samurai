@@ -1,12 +1,11 @@
-import React, {Component } from 'react';
+import React, {Component, Suspense} from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import store from "./redux/redux_store";
 import { Route, withRouter} from 'react-router-dom';
 import Music from './components/Music/Music';
-import DialogsContainer from './components/Dialogs/put/DialogsContainer';
+
 import UsersContainer from './components/Users/UsersContainer';
-import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import LoginPage from './login/login';
 import {BrowserRouter} from "react-router-dom";
@@ -16,6 +15,12 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import {initialiseApp} from "./AppReducer";
 import Preloader from "./components/preloader/Preloader";
+import {WithSuspense} from "./HOC/WithAuthSuspense";
+
+const DialogsContainer = React.lazy(() => import('./components/Dialogs/put/DialogsContainer'))
+const ProfileContainer = React.lazy(()=> import('./components/Profile/ProfileContainer'));
+
+
 
 
 
@@ -26,22 +31,25 @@ class App extends Component {
     render() {
         if (this.props.initialised) {
             return (
+               
                 <div className='app-wrapper'>
                     <HeaderContainer/>
                     <Navbar/>
                     {/*<Profile/>*/}
                     <div className='app-wrapper-content'>
-                        <Route path="/dialogs" render={() => <DialogsContainer/>}/>
-                        <Route path="/profile/:userId?" render={() => <ProfileContainer/>}/>
+                        <Route path="/dialogs" render={WithSuspense(DialogsContainer)}/>
+                        <Route path="/profile/:userId?" render={WithSuspense(ProfileContainer)}/>
                         <Route path="/users" render={() => <UsersContainer/>}/>
                         <Route path="/login" render={() => <LoginPage/>}/>
                         <Route path='/music' render={() => <Music/>}/>
 
                     </div>
                 </div>
+                    
             );
 
         }
+
         return (<Preloader/>)
     }
 }

@@ -18,7 +18,7 @@ grid-template-areas:
     grid-area: c;
     background-color:whitesmoke;
    }
-   .app-wrapper-content img{
+   .app-wrapper-content .mainImage{
       height: 250px;
       width: 99%;
       padding: 10px;

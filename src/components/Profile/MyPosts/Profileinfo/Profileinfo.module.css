@@ -27,3 +27,7 @@
     font-family: 'Farro', sans-serif;
     color: black;
 }
+.error {
+    color: red;
+    font-weight: bold;
+}
