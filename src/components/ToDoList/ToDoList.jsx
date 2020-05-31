@@ -2,13 +2,13 @@ import React from 'react';
 import s from './ToDoList.module.css';
 import cn from "classnames";
 
-const ToDoList =({items, Completed}) => {
+const ToDoList =({items, Completed, RemoveTask}) => {
   debugger
   let CreateTask = ({id, index, text, completed}) => {
     console.log("completed", completed)
     return <li ><span className={cn({[s.completed] : completed === true})}><input onClick={() => Completed(id)} type="checkbox"/> <strong>{index}
     </strong>&nbsp;{text} </span>
-    <button>&times;</button>
+    <button onClick={() => {RemoveTask(id)}}>&times;</button>
     </li>
   }
 let TasksElements = items.map((t, index) => <CreateTask key={t.id} completed = {t.completed} id={t.id} index = {index +1} text ={t.text} />)
