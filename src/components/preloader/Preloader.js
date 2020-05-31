@@ -1,6 +1,7 @@
 import React from 'react'
-import preloader from '../../assets/comment.svg'
+import s from "./Preloader.module.css"
+import preloader from '../../assets/Preloaders.gif'
 let Preloader = (props) => {
-    return <img src={preloader}/>
+    return <img className={s.Preloader} src={preloader}/>
 }
 export default Preloader;

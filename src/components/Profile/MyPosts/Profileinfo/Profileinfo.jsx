@@ -1,10 +1,9 @@
  import React, {useState} from 'react';
 import s from './Profileinfo.module.css'
-import {updateNewPostTextActionCreator, addPostActionCreator} from '../../../../redux/profile_reducer';
 import Preloader from '../../../preloader/Preloader';
-import ProfileStatusWithHooks from './ProfileStatus';
+import ProfileStatus from './ProfileStatus';
 import photoProfile from '../../../../assets/img/ProfilePhoto.jpeg'
-import {ProfileDataForm, ProfileDataFormReduxForm} from "./ProfileDataForm";
+import {ProfileDataFormReduxForm} from "./ProfileDataForm";
 
 const Profileinfo = ({profile, updateStatus, status, isOwner, SavePhoto, SaveProfile}) => {
 
@@ -59,7 +58,7 @@ const Profileinfo = ({profile, updateStatus, status, isOwner, SavePhoto, SavePro
             <div className={s.main}><img src={profile.photos.large != null ? profile.photos.large : photoProfile}
                                          alt=""/>
 
-                <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
+                <ProfileStatus status={status} updateStatus={updateStatus}/>
             </div>
             {isOwner && <input type={"file"} onChange={onMainPhoto}/>}
 

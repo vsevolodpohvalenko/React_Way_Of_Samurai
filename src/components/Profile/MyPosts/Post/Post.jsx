@@ -4,7 +4,7 @@ const Post = (props) =>{
   return <div className={s.item}>
 <div className={s.border}>
 <img src={props.Ava} alt=""/>
- {props.message}<img  />
+ {props.message}
  <div>
  
 <span > {props.likeCount}<a href="£" className={s.likeform}>likes</a></span>

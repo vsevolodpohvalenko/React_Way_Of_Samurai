@@ -1,0 +1,22 @@
+.item li{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rosybrown;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+.item button {
+    background: slateblue;
+    border: none;
+    height: 30px;
+    width: 30px;
+    margin: 0;
+    border-radius: 10%;
+    color: white;
+}
+.item .completed {
+    text-decoration: line-through;
+}

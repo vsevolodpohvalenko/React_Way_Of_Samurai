@@ -5,7 +5,7 @@ let initialState = {
     {id: 2, to: '/dialogs', name:'Dialogs'},
     {id: 3,to: '/news', name:'News'},
     {id: 4, to: '/users', name:'Users'},
-    {id: 4, to: '/music', name:'Music'},
+    {id: 4, to: '/ToDoList', name:'ToDoList'},
     {id: 6, to: '/setting', name:'Setting'}
 
   ],

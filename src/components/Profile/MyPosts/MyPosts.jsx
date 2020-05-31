@@ -7,7 +7,7 @@ import { Field, reduxForm } from 'redux-form';
 import { required, maxLengthCreator } from '../../../utils/validators';
 import { TextArea } from '../../preloader/FormControls';
 const MyPosts = ({profile, addPost}) =>{
-
+debugger
     let AddPost = (values) => {
   addPost(values.postMessage)
 }

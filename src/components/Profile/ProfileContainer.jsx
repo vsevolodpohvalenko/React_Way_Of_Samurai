@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component } from 'react';
 import Profile from './Profile';
 import { connect } from 'react-redux';
 import {setUserProfile, MyProfile, getStatus, updateStatus, SavePhoto, SaveProfile} from '../../redux/profile_reducer'
@@ -30,7 +30,7 @@ this.refreshProfile()
      return (
        <div>
 
-         <Profile {...this.props.profile} SaveProfile={ this.props.SaveProfile} SavePhoto = {this.props.SavePhoto} isOwner = {!this.props.match.params.userId} profile= {this.props.profile} status = {this.props.status} updateStatus ={this.props.updateStatus} />
+         <Profile {...this.props.profile} SaveProfile = {this.props.SaveProfile} SavePhoto = {this.props.SavePhoto} isOwner = {!this.props.match.params.userId} profile= {this.props.profile} status = {this.props.status} updateStatus ={this.props.updateStatus} />
        </div>
      )
    }
@@ -45,8 +45,7 @@ let mapStateToProps = (state) =>({
   profile: state.ProfilePage.profile,
   status: state.ProfilePage.status,
   MyID: state.auth.userId,
-  isAuth:  state.auth.isAuth,
-
+  isAuth:  state.auth.isAuth
  })
 
  export default compose( withRouter, connect(mapStateToProps, {setUserProfile,MyProfile, SavePhoto, SaveProfile, getStatus, updateStatus }), WithAuthRedirect)(ProfileContainer)
