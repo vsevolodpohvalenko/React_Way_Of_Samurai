@@ -1,34 +1,9 @@
-import React, {Component } from 'react';
+import React  from 'react';
 import { updateNewMessageTextCreator, AddTextCreator } from '../../../redux/dialogs_reducer';
 import { connect } from 'react-redux';
 import Dialogs, { MessageForm } from '../Dialogs';
 import { WithAuthRedirect } from '../../../HOC/WithAuthRedirect';
 import { compose } from 'redux';
-// const TextrContainer = (props) => {
-
-
-//   return <StoreContext.Consumer>
-//     { 
-//     (store) => {
-//       let state = store.getState()
-//     let ChangeText =(NewMessage) =>{
- 
-//       store.dispatch(updateNewMessageTextCreator(NewMessage))
-//     }
-    
-//     let addtext=( )=>{
-//       store.dispatch(AddTextCreator())
-//       store.dispatch(updateNewMessageTextCreator(' '))}
-
-   
-//    return  <Textr newMessageChange={state.dialogs.newMessageChange} updateNewMessage={ChangeText} AddTextCreator={addtext} />
-//     }
-//     }
-//     </StoreContext.Consumer>
-
-// }
-
-
 let mapStateToProps= (state) => {
   return {
     messages: state.dialogs.messages,

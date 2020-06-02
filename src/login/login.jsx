@@ -9,9 +9,9 @@ import {Redirect} from "react-router-dom"
 
 const LoginForm = ({handleSubmit, error, captchaUrl}) => {
     return (
-        <form onSubmit={handleSubmit}>
+        <form className={s.appear}  onSubmit={handleSubmit}>
             {CreateField("Email", "email", [required], Input)}
-            {CreateField("Password", "password", [required], Input, {type: "password"})}
+            {CreateField("Password", "password", [required], Input, {type: "password", id:"password"})}
             {CreateField(null, "rememberMe", [], Input, {type: "checkbox"}, "remember me")}
             {captchaUrl && <img src={captchaUrl}/>}
             {captchaUrl && CreateField("Symbols from the captcha", "captcha", [required], Input)}

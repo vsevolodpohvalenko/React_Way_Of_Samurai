@@ -5,9 +5,7 @@ import store from "./redux/redux_store";
 import {Redirect, Route, Switch, withRouter} from 'react-router-dom';
 
 
-import UsersContainer from './components/Users/UsersContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
-import LoginPage from './login/login';
 import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 
@@ -16,14 +14,14 @@ import { connect } from 'react-redux';
 import {initialiseApp} from "./AppReducer";
 import Preloader from "./components/preloader/Preloader";
 import {WithSuspense} from "./HOC/WithAuthSuspense";
-import ToDoListContainer from "./components/ToDoList/ToDoListContainer";
+
 
 
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/put/DialogsContainer'))
 const ProfileContainer = React.lazy(()=> import('./components/Profile/ProfileContainer'));
-
-
-
+const LoginPage = React.lazy(() => import('./login/login'))
+const UsersContainer = React.lazy(() => import('./components/Users/UsersContainer'))
+const ToDoListContainer = React.lazy(() => import('./components/ToDoList/ToDoListContainer'))
 
 
 class App extends Component {
@@ -33,26 +31,28 @@ class App extends Component {
     render() {
         if (this.props.initialised) {
             return (
-               
+
                 <div className='app-wrapper'>
                     <HeaderContainer/>
                     <Navbar/>
                     {/*<Profile/>*/}
                     <Switch>
+                        <React.Fragment>
                     <div className='app-wrapper-content'>
 
                         <Route path="/" exact><Redirect to="/profile"/></Route>
 
                         <Route path="/dialogs" render={WithSuspense(DialogsContainer)}/>
                         <Route path="/profile/:userId?" render={WithSuspense(ProfileContainer)}/>
-                        <Route path="/users" render={() => <UsersContainer/>}/>
-                        <Route path="/login" render={() => <LoginPage/>}/>
-                        <Route path='/todolist' render={() => <ToDoListContainer/>}/>
+                        <Route path="/users" render={WithSuspense(UsersContainer)}/>
+                        <Route path="/login" render={WithSuspense(LoginPage)}/>
+                        <Route path='/todolist' render={WithSuspense(ToDoListContainer)}/>
 
                     </div>
+                        </React.Fragment>
                     </Switch>
                 </div>
-                    
+
             );
 
         }

@@ -16,10 +16,13 @@ grid-template-areas:
 }
 .app-wrapper-content{
     grid-area: c;
-    background-color:whitesmoke;
+    background-color:white;
    }
    .app-wrapper-content .mainImage{
       height: 250px;
       width: 99%;
       padding: 10px;
    }
+body{
+    font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+}

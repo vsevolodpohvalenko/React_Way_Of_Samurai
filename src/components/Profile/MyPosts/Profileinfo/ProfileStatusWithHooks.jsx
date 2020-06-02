@@ -12,7 +12,7 @@ let diactivateEditMode = () =>{
     setEditMode(false)
     props.updateStatus(status);
 }
-const onStatusChange = () => {
+const onStatusChange = (e) => {
     setStatus(e.currentTarget.value)
 }
 return <>

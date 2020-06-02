@@ -8,12 +8,10 @@ import { TextArea } from '../preloader/FormControls';
 import { required, maxLengthCreator } from '../../utils/validators';
 
 
-
-
-let  maxLengthCreator10= maxLengthCreator(10)
+let  maxLengthCreator35= maxLengthCreator(35)
 const AddMessageForm = (props) => {
-  return <form onSubmit = {props.handleSubmit} action="">
-    <div><Field type= "text"  name = {"message"} component ={TextArea} validate={[required, maxLengthCreator10]} placeholder={"Text something..."}/></div>
+  return <form className={s.item1} onSubmit = {props.handleSubmit} action="">
+    <Field type= "text"  name = {"message"} component ={TextArea} validate={[required, maxLengthCreator35]} placeholder={"Text something..."}/>
     <button >Send</button>
   </form>
 }
@@ -21,13 +19,6 @@ const AddMessageForm = (props) => {
 const AddMessageReduxForm = reduxForm({
   form: "dialogAddMessageForm"
 })(AddMessageForm)
-
-
-
-
-
-
-
 
 const Dialogs = (props) => {
  let state = store.getState().dialogs   
@@ -50,7 +41,7 @@ let Text= React.createRef()
             <div className={s.cent}>
                 {messagesElements}
             </div>
-    <div className={s.item1}><AddMessageReduxForm onSubmit ={AddNewMessage}/> </div>
+    <AddMessageReduxForm onSubmit ={AddNewMessage}/>
   </div>
         </div>
         }

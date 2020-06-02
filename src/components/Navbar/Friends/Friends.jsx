@@ -10,7 +10,7 @@ const FriendMAKE = (props) => {
     ) 
 }
 const Friend = (props) => { 
-    let Friends = props.Frie.map(f=> <FriendMAKE name={f.name} foto={f.foto}/>)
+    let Friends = props.Frie.map(f=> <FriendMAKE key={f.id} name={f.name} foto={f.foto}/>)
         return(<div> 
         <h2>Friends</h2>
            <div className={s.item}>

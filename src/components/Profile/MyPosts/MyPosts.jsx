@@ -5,7 +5,7 @@ import store from '../../../redux/redux_store';
 import Preloader from '../../preloader/Preloader';
 import { Field, reduxForm } from 'redux-form';
 import { required, maxLengthCreator } from '../../../utils/validators';
-import { TextArea } from '../../preloader/FormControls';
+import {Input, TextArea} from '../../preloader/FormControls';
 const MyPosts = ({profile, addPost}) =>{
 debugger
     let AddPost = (values) => {
@@ -31,11 +31,11 @@ debugger
 
 
 
-let maxLengthCreator10 = maxLengthCreator(10)
-const AddPostForm = (props) =>{
- return <form action="" onSubmit ={props.handleSubmit}>
-    <Field className={s.tex} component ={TextArea} placeholder={"Share your impression"} validate={[required, maxLengthCreator10]} name = {"postMessage"}   type="text"/>
-    <button  className={s.bcol}  >Send</button>
+let maxLengthCreator40 = maxLengthCreator(40)
+const AddPostForm = ({handleSubmit}) =>{
+ return <form className={s.messageForm} onSubmit ={handleSubmit}>
+    <Field className={s.tex} component ={TextArea} placeholder={"Share your impression"} validate={[required, maxLengthCreator40]} name = {"postMessage"}   type="text"/>
+    <button  className={s.bcol}>Send</button>
   </form>
 }
 

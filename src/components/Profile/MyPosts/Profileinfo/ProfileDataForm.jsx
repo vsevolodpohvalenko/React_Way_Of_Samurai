@@ -8,7 +8,7 @@ const ProfileDataForm = ({profile, handleSubmit, error}) => {
 
     return <form onSubmit={handleSubmit}>
             <div>
-                <button >Save</button>
+                <button className={s.edit}>Save</button>
             </div>
 
         {error && <div className={s.error}>

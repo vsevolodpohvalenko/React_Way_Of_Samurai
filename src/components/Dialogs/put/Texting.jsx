@@ -1,6 +1,5 @@
-import React, {Component } from 'react';
+import React from 'react';
 import s from './Texting.module.css'
-import { updateNewMessageTextCreator, AddTextCreator } from '../../../redux/dialogs_reducer';
 const MessageForm = (props) => {
 let Text= React.createRef()
 
@@ -24,4 +23,4 @@ let addtext=( )=>{
   
 }
 
-  export default MessageForm
+export default MessageForm

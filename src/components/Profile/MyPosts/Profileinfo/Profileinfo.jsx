@@ -4,7 +4,6 @@ import Preloader from '../../../preloader/Preloader';
 import ProfileStatus from './ProfileStatus';
 import photoProfile from '../../../../assets/img/ProfilePhoto.jpeg'
 import {ProfileDataFormReduxForm} from "./ProfileDataForm";
-
 const Profileinfo = ({profile, updateStatus, status, isOwner, SavePhoto, SaveProfile}) => {
 
   let [editMode, setEditMode] = useState(false);
@@ -16,7 +15,6 @@ const Profileinfo = ({profile, updateStatus, status, isOwner, SavePhoto, SavePro
         return <Preloader/>
     }
     const onMainPhoto = (e) => {
-        debugger
         if (e.target.files.length) {
             SavePhoto(e.target.files[0])
         }
@@ -25,18 +23,16 @@ const Profileinfo = ({profile, updateStatus, status, isOwner, SavePhoto, SavePro
   const ProfileData = ({profile, isOwner, goToEditMode}) => {
       debugger
     return <div>
-      {isOwner && <div>
-        <button onClick={goToEditMode}>Edit</button>
-      </div>}
+
       {profile.fullName} <br/>
       <div className={s.main}>
         <b>Some information about me : </b> {profile.aboutMe || "I'm realy modest person"}
       </div>
       <div className={s.main}>
-        <b>My skills : </b> {profile.lookingForAJob || "false"}
+        <b>Searching job :</b> {profile.lookingForAJob || "false"}
       </div>
       <div className={s.main}>
-        <b>Searching job : </b> {profile.lookingForAJobDescription || "I'm just student, or very lazy"}
+        <b> My skills :     </b> {profile.lookingForAJobDescription || "I'm just student, or very lazy"}
       </div>
       <b>Contacts: </b>
       <div className={s.main}>
@@ -45,6 +41,9 @@ const Profileinfo = ({profile, updateStatus, status, isOwner, SavePhoto, SavePro
           return <Contact contactTitle={key} contactValue={profile.contacts[key]}/>
         })}</div>
       </div>
+        {isOwner && <div>
+            <button className={s.edit} onClick={goToEditMode}>Edit</button>
+        </div>}
     </div>
 
   }
@@ -60,7 +59,10 @@ const Profileinfo = ({profile, updateStatus, status, isOwner, SavePhoto, SavePro
 
                 <ProfileStatus status={status} updateStatus={updateStatus}/>
             </div>
-            {isOwner && <input type={"file"} onChange={onMainPhoto}/>}
+            {isOwner &&
+            <div><input className={s.setPhotoInput} type={"file"} id='file' accept="image/*"
+                        onChange={onMainPhoto}/><label htmlFor="file"  className={s.setPhotoLabel}> <img className={s.icon} src={'https://static.thenounproject.com/png/187803-200.png'}/>&nbsp; Choose a Photo</label></div>
+            }
 
           { editMode
               ? <ProfileDataFormReduxForm initialValues={profile} profile ={profile} onSubmit ={onSubmit}/>
