@@ -1,0 +1,27 @@
+.wrapper{
+    width: 1000px;
+    margin: 0 auto;
+    
+    grid-template-areas:
+    "d m" ;
+    
+      display: grid;
+      grid-template-columns: 2fr 10fr;
+      
+    }
+.Speaker{
+    display: flex;
+}
+.Direct{
+    grid-area: d;
+    border: lightgray solid 1px;
+}
+.Direct img{
+    width: 60px;
+    height: 60px;
+}
+.Message{
+    grid-area: m;
+    border: lightgray solid 1px;
+
+}

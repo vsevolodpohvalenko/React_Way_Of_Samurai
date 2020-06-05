@@ -2,11 +2,11 @@ import React from 'react';
 import s from './ToDoList.module.css';
 import {CreateField, Input} from "../preloader/FormControls";
 import {maxLengthCreator, required} from "../../utils/validators";
-let MaxLength30 = maxLengthCreator(30)
+let MaxLength50 = maxLengthCreator(50)
 
 export const AddToDoForm =(props) => {
-    return <form className={s.make} onSubmit={props.handleSubmit}>
-        {CreateField("Just Do IT", "newTask", [required, MaxLength30], Input)}
+    return <form className={s.make} onKeyPress={props.onKeyPress} onSubmit={props.handleSubmit}>
+        {CreateField("Just Do IT", "newTask", [required, MaxLength50], Input)}
         <button className={s.Push}>Push</button>
     </form>
 

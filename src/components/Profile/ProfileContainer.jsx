@@ -1,10 +1,11 @@
-import React, {Component } from 'react';
+import React from 'react';
 import Profile from './Profile';
 import { connect } from 'react-redux';
 import {setUserProfile, MyProfile, getStatus, updateStatus, SavePhoto, SaveProfile} from '../../redux/profile_reducer'
 import { withRouter } from 'react-router-dom';
 import { WithAuthRedirect } from '../../HOC/WithAuthRedirect';
 import { compose } from 'redux';
+import { getProfileS, getStatusS, getMyIdS, getIsAuthS } from '../../redux/profile_selectors';
 
  
 
@@ -42,10 +43,10 @@ this.refreshProfile()
 //   isAuth:  state.auth.isAuth
 //  })
 let mapStateToProps = (state) =>({
-  profile: state.ProfilePage.profile,
-  status: state.ProfilePage.status,
-  MyID: state.auth.userId,
-  isAuth:  state.auth.isAuth
+  profile: getProfileS(state),
+  status: getStatusS(state),
+  MyID: getMyIdS(state),
+  isAuth:  getIsAuthS(state)
  })
 
  export default compose( withRouter, connect(mapStateToProps, {setUserProfile,MyProfile, SavePhoto, SaveProfile, getStatus, updateStatus }), WithAuthRedirect)(ProfileContainer)

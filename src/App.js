@@ -17,11 +17,13 @@ import {WithSuspense} from "./HOC/WithAuthSuspense";
 
 
 
-const DialogsContainer = React.lazy(() => import('./components/Dialogs/put/DialogsContainer'))
+
+const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'))
 const ProfileContainer = React.lazy(()=> import('./components/Profile/ProfileContainer'));
 const LoginPage = React.lazy(() => import('./login/login'))
 const UsersContainer = React.lazy(() => import('./components/Users/UsersContainer'))
 const ToDoListContainer = React.lazy(() => import('./components/ToDoList/ToDoListContainer'))
+// const TypeAMessageForm = React.lazy(()=> import('./components/Dialogs/Makers/TypeAMessageForm'))
 
 
 class App extends Component {
@@ -42,11 +44,12 @@ class App extends Component {
 
                         <Route path="/" exact><Redirect to="/profile"/></Route>
 
-                        <Route path="/dialogs" render={WithSuspense(DialogsContainer)}/>
+                        <Route exact path="/dialogs/:id?" render={WithSuspense(DialogsContainer)}/>
                         <Route path="/profile/:userId?" render={WithSuspense(ProfileContainer)}/>
                         <Route path="/users" render={WithSuspense(UsersContainer)}/>
                         <Route path="/login" render={WithSuspense(LoginPage)}/>
                         <Route path='/todolist' render={WithSuspense(ToDoListContainer)}/>
+                        {/* <Route path='/form' render={WithSuspense(TypeAMessageForm)}/> */}
 
                     </div>
                         </React.Fragment>

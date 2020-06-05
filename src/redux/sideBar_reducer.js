@@ -2,7 +2,7 @@
 let initialState = {
   SideBar: [
     {id: 1, to: '/profile', name:'Profile'},
-    {id: 2, to: '/dialogs', name:'Dialogs'},
+    {id: 2, to: '/dialogs/1', name:'Dialogs'},
     {id: 3, to: '/news', name:'News'},
     {id: 4, to: '/users', name:'Users'},
     {id: 5, to: '/ToDoList', name:'Keep Notes'},

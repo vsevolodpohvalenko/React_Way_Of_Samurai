@@ -3,11 +3,13 @@ import s from "./Profileinfo/Profileinfo.module.css"
 import Post from './Post/Post';
 import store from '../../../redux/redux_store';
 import Preloader from '../../preloader/Preloader';
-import { Field, reduxForm } from 'redux-form';
-import { required, maxLengthCreator } from '../../../utils/validators';
-import {Input, TextArea} from '../../preloader/FormControls';
+import {  reduxForm } from 'redux-form';
+import {AddPostForm} from "./MyPostsForm"
 const MyPosts = ({profile, addPost}) =>{
-debugger
+  const AddPostFormReducer = reduxForm({
+    form : "post"
+  })(AddPostForm)
+
     let AddPost = (values) => {
   addPost(values.postMessage)
 }
@@ -29,17 +31,4 @@ debugger
 }
 
 
-
-
-let maxLengthCreator40 = maxLengthCreator(40)
-const AddPostForm = ({handleSubmit}) =>{
- return <form className={s.messageForm} onSubmit ={handleSubmit}>
-    <Field className={s.tex} component ={TextArea} placeholder={"Share your impression"} validate={[required, maxLengthCreator40]} name = {"postMessage"}   type="text"/>
-    <button  className={s.bcol}>Send</button>
-  </form>
-}
-
-const AddPostFormReducer = reduxForm({
-  form : "post"
-})(AddPostForm)
 export default MyPosts;
