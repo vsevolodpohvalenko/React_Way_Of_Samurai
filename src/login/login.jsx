@@ -21,7 +21,7 @@ class LoginForm extends React.Component {
         let {handleSubmit, error, captchaUrl} = this.props;
         return (
             <form className={s.appear} onSubmit={handleSubmit}>
-                {CreateField("Email", "email", [required], Input)}
+                <div className={s.field}>{CreateField("Email", "email", [required], Input)}</div>
                <div className={s.field}>{CreateField("Password", "password",
                     [required], Input, {type: (isPasswordShown ? "text": "password"), id: "password"})}<img onClick={() =>{this.togglePasswordVisability()} } className={s.lock} src='https://icons-for-free.com/iconfiles/png/512/open+password+icon-1320183290851596683.png'/></div>
                <div className={s.center}> {CreateField(null, "rememberMe",

@@ -3,7 +3,7 @@ import s from "./FormControls.module.css"
 import {Field} from "redux-form";
 const FormControls = ({input, meta:{touched, error}, children}) => {
 
-    const field = input.name !== "password" && input.name !== "rememberMe"
+    const field = input.name !== "password" && input.name !== "email" && input.name !== "rememberMe"
 
     const Indicate = error && touched
     return <div><div className={s.formControl + ' ' + (Indicate && s.error) + ' ' + (field && s.field)}>
