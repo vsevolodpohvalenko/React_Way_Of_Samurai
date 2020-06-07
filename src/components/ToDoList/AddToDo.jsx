@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './ToDoList.module.css';
-import {CreateField, Input} from "../preloader/FormControls";
+import {CreateField, Input} from "../../FormControl/FormControls";
 import {maxLengthCreator, required} from "../../utils/validators";
 let MaxLength50 = maxLengthCreator(50)
 

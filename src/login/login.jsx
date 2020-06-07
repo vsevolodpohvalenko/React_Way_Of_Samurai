@@ -1,7 +1,7 @@
 import React from "react"
 import s from "./login.module.css"
 import {reduxForm} from "redux-form"
-import {Input, CreateField} from '../components/preloader/FormControls'
+import {Input, CreateField} from '../FormControl/FormControls'
 import {required} from "../utils/validators"
 import {connect} from "react-redux"
 import { login} from "../redux/auth-reducer"

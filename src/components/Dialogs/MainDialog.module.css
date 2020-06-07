@@ -65,10 +65,14 @@
 }
 .Speaker{
     display: flex;
+    text-decoration: none;
+    color: black;
+    align-items: center;
 }
 .Direct{
     grid-area: d;
     border: lightgray solid 1px;
+    
 }
 .Direct img{
     width: 35px;

@@ -1,6 +1,6 @@
 import React from "react"
 import s from "./Profileinfo.module.css";
-import {CreateField, Input} from "../../../preloader/FormControls";
+import {CreateField, Input} from "../../../../FormControl/FormControls"
 import { reduxForm } from "redux-form"
 
 

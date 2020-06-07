@@ -3,7 +3,7 @@ import s from "./Profileinfo/Profileinfo.module.css"
 
 import { Field} from 'redux-form';
 import { required, maxLengthCreator } from '../../../utils/validators';
-import { TextArea} from '../../preloader/FormControls';
+import { TextArea} from '../../../FormControl/FormControls';
 
 let maxLengthCreator40 = maxLengthCreator(40)
 export const AddPostForm = ({handleSubmit}) =>{
