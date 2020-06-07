@@ -16,3 +16,22 @@
   text-decoration: none;
   
 }
+.hbtn {
+  margin-top: 20px;
+  transition: 0.5s;
+  background-color: #ffffff;
+  margin-left: 10px;
+  width: 100px;
+  font-size: 16px;
+  color: royalblue;
+  border:solid 1px royalblue;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", sans-serif;
+}
+.hbtn:hover{
+  color: #ffffff;
+    border: 1px solid #ffffff;
+    background-color: royalblue;
+}

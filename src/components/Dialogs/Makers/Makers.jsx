@@ -5,8 +5,8 @@ import style from "./Makers.module.css"
 
 
 export const Conversation = ({message, messagea, id}) =>{
-    return <div key={id}>
-        <p className={style.rightMessage}>{messagea}</p><p className={style.leftMessage}>{message}</p>
+    return <div className={s.whiteSpace} key={id}>
+        <div className={style.rightMessage}>{messagea}</div><div className={style.leftMessage}>{message}</div>
     </div>
 
     }

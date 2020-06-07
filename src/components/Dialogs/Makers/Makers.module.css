@@ -1,6 +1,17 @@
 .rightMessage{
     float: right;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 50%;
+    text-align: end;
+    
 }
+
+
 .leftMessage{
+    width: 50%;
+    text-align: inherit;
     float: left;
+    margin-left: 20px;
 }

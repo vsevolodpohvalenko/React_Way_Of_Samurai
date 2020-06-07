@@ -5,36 +5,37 @@ import { NavLink } from 'react-router-dom';
 
 
 let User = ({user, followingInProgress, unfollow, follow}) => {
+    debugger
     return <div className={s.item}>
-            <span>
-                <div>
+           
+           <div className={s.person}> <span>
+                <div className={s.person}>
+                    <div>
                 <NavLink to={'/profile/' + user.id}>
-                <img src={user.photos.small != null ? user.photos.small : photoProfile} />
+                <div className={s.Box}> <img  src={user.photos.small != null ? user.photos.small : photoProfile} /></div>
                 </NavLink> 
                     </div>
+                    <span className={s.person}>
+                        <div className={s.Box}>{user.name}</div>
+                        <div className={s.Box}>{user.status || "Status"}</div>
+                    </span>
                     <div>
                         {user.followed
-                            ? <button className={s.unfollow} disabled={followingInProgress.some(id=> id== user.id)} onClick={() => {
+                            ? <div className={s.Box}><button  className={s.unfollow} disabled={followingInProgress.some(id=> id== user.id)} onClick={() => {
                                 unfollow(user.id)
                                    
-                            }}>Unfollow</button>
-                            : <button  className={s.follow} disabled={followingInProgress.some(id=> id== user.id)} onClick={() => {
+                            }}>Unfollow</button></div>
+                            : <div className={s.Box}><button  className={s.follow} disabled={followingInProgress.some(id=> id== user.id)} onClick={() => {
                                 follow(user.id)
-                            }}>Follow</button>}
+                            }}>Follow</button></div>}
 
+                    </div>
                     </div>
                 </span>
                 <span>
-                    <span>
-                        <div>{user.name}</div>
-                        <div>{user.status}</div>
-                    </span>
-                    <span>
-                        <div>{"u.location.country"}</div>
-                        <div>{"u.location.city"}</div>
-                    </span>
+                   
                 </span>
-        
+                </div>
 </div>
 }
  export default User;

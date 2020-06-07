@@ -2,7 +2,7 @@ ul li{
   list-style-type:lower-latin;
 }
 .app-wrapper{
-width: 1200px;
+width: 1350px;
 margin: 0 auto;
 
 grid-template-areas:

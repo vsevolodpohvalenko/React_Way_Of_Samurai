@@ -6,7 +6,6 @@ import { Speaker } from './Makers/Makers'
 import { Conversation } from './Makers/Makers'
 
 export const MainDialog = (props) => {
-    debugger
    let NavId = props.match.params.id
     let OnSubmit =(messagea) => {
         props.AddText(NavId, messagea)}
@@ -16,7 +15,7 @@ export const MainDialog = (props) => {
         
         <div className={s.Direct}>{Speakers}</div>
         <div className={s.Message} >{Message} </div>
-        <div> <TypeAMessageForm OnSubmit ={ OnSubmit}/></div>
+        <div className={s.Input}> <TypeAMessageForm OnSubmit ={ OnSubmit}/></div>
         
         </div>
     )
@@ -40,14 +39,16 @@ const initialValues = {
 
 const TypeAMessageForm = ({OnSubmit}) => {
 
-    const onSubmit = (values)=>{
+    const onSubmit = (values, {resetForm})=>{
         OnSubmit(values.message)
+        resetForm({values: ""})
+        
     }
 
     return <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
-        <Form >
-            <Field name="message" component="input"  placeholder="Type a message..." type="text"/>
+        <Form className={s.form}>
+            <Field  className={s.inp} name="message" component="input"  placeholder="Type a message..." type="text"/>
                 <ErrorMessage name ="message"/>
-            <button type="submit">Send</button>
+            <button className={s.btn} type="submit">Send</button>
         </Form>
     </Formik>}

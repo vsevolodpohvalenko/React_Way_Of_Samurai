@@ -57,7 +57,7 @@ const Profileinfo = ({profile, updateStatus, status, isOwner, SavePhoto, SavePro
             <div className={s.main}><img src={profile.photos.large != null ? profile.photos.large : photoProfile}
                                          alt=""/>
 
-                <ProfileStatus status={status} updateStatus={updateStatus}/>
+                {isOwner && <ProfileStatus status={status} updateStatus={updateStatus}/>}
             </div>
             {isOwner &&
             <div><input className={s.setPhotoInput} type={"file"} id='file' accept="image/*"
