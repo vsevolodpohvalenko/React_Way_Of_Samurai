@@ -24,15 +24,7 @@
 .checkLabel{
     font-size: 14px;
 }
-.center{
-    display: flex;
-    align-items: center;
-    position: absolute;
-    font-size: 18px;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+
 .center input[type= "checkbox"] {
     position: relative;
     width: 40px;
@@ -40,6 +32,7 @@
     -webkit-appearance: none;
     background: #c6c6c6;
     outline: none;
+    margin-left: 27px;
     border-radius: 20px;
     transition: .5s;
     box-shadow: inset 0 0 5px rgba(0,0,0,.2);
@@ -47,6 +40,7 @@
 .center input:checked[type="checkbox"]{
     background: rgba(0, 234, 226, 0.85);
     margin-right: 10px;
+    
 }
 .Log:hover{
     color: #ffffff;

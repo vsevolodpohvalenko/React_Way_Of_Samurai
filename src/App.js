@@ -1,4 +1,4 @@
-import React, {Component, Suspense} from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import store from "./redux/redux_store";
@@ -23,7 +23,6 @@ const ProfileContainer = React.lazy(()=> import('./components/Profile/ProfileCon
 const LoginPage = React.lazy(() => import('./login/login'))
 const UsersContainer = React.lazy(() => import('./components/Users/UsersContainer'))
 const ToDoListContainer = React.lazy(() => import('./components/ToDoList/ToDoListContainer'))
-// const TypeAMessageForm = React.lazy(()=> import('./components/Dialogs/Makers/TypeAMessageForm'))
 
 
 class App extends Component {

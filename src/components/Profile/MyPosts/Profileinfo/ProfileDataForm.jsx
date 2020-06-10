@@ -25,8 +25,8 @@ const ProfileDataForm = ({profile, handleSubmit, error}) => {
                 <b>Some information about me :</b> {CreateField("About me", "aboutMe", [], Input )}
             </div>
             <b>Contacts: </b>
-            <div>{Object.keys(profile.contacts).map(key => {
-                return <div key={key} className={s.contacts}>
+            <div>{Object.keys(profile.contacts).map((key, index) => {
+                return <div key={index} className={s.contacts}>
                     <b>{key} : {CreateField(key, "contacts."+key, [], Input)} </b>
                 </div>
             })}</div>

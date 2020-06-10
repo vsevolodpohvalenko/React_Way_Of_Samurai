@@ -9,8 +9,8 @@ export const MainDialog = (props) => {
    let NavId = props.match.params.id
     let OnSubmit =(messagea) => {
         props.AddText(NavId, messagea)}
-    let Speakers = props.speakers.map(s => <Speaker photo={s.photo} SetId = {props.SetId}  stateId = {props.id}  name={s.name} id={s.id} />)
-    let Message = props.messages[props.match.params.id-1].messages.map((m, index) => <Conversation AddText = {props.AddText} message={m.message}  messagea={m.messagea} id={index} />)
+    let Speakers = props.speakers.map((s, index) => <Speaker photo={s.photo} key = {index} SetId = {props.SetId}  stateId = {props.id}  name={s.name} id={s.id} />)
+    let Message = props.messages[props.match.params.id-1].messages.map((m, index) => <Conversation AddText = {props.AddText} key={index} message={m.message}  messagea={m.messagea} id={index} />)
     return (<div className={s.wrapper}>
         
         <div className={s.Direct}>{Speakers}</div>

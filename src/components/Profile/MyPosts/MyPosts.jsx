@@ -17,7 +17,7 @@ const MyPosts = ({profile, addPost}) =>{
     return <Preloader/>
   }
     let state = store.getState().ProfilePage
-    let postElements = state.posts.map( p => <Post key = {p.id} message = {p.message} likeCount ={p.likeCount} Ava={p.Ava} key={p.id}/>)
+    let postElements = state.posts.map(( p, index) => <Post key = {index} message = {p.message} likeCount ={p.likeCount} Ava={p.Ava} />)
 
   return <div className={s.item}>
 

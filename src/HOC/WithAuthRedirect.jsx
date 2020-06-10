@@ -1,7 +1,6 @@
-import React, {Component} from 'react'
-import {Redirect, Route} from 'react-router-dom'
+import React from 'react'
+import {Redirect} from 'react-router-dom'
 import { connect } from 'react-redux'
-import Preloader from "../components/preloader/Preloader";
 let MapStateToProps = (state) =>{
 return {isAuth: state.auth.isAuth}
 }

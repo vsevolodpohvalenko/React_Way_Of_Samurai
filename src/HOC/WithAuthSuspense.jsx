@@ -1,4 +1,4 @@
-import React, {Component, Suspense} from 'react'
+import React, { Suspense} from 'react'
 import Preloader from "../components/preloader/Preloader";
 
 export  const  WithSuspense =  (Component) => {

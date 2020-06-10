@@ -25,7 +25,7 @@ class LoginForm extends React.Component {
                <div className={s.field}>{CreateField("Password", "password",
                     [required], Input, {type: (isPasswordShown ? "text": "password"), id: "password"})}<img onClick={() =>{this.togglePasswordVisability()} } className={s.lock} src='https://icons-for-free.com/iconfiles/png/512/open+password+icon-1320183290851596683.png'/></div>
                <div className={s.center}> {CreateField(null, "rememberMe",
-                    [], Input, {type: "checkbox", id: "check"})} <label className={s.checkLabel} htmlFor="check">Remember Me</label></div>
+                    [], Input, {type: "checkbox", id: "check"})} </div>
                 {captchaUrl && <img src={captchaUrl}/>}
                 {captchaUrl && CreateField("Symbols from the captcha", "captcha", [required], Input)}
                 {error && <div className={s.form_summary_error}>

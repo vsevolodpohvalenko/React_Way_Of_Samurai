@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 
 let User = ({user, followingInProgress, unfollow, follow}) => {
-    debugger
+
     return <div className={s.item}>
            
            <div className={s.person}> <span>

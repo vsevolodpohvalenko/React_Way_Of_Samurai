@@ -37,8 +37,8 @@ const Profileinfo = ({profile, updateStatus, status, isOwner, SavePhoto, SavePro
       <b>Contacts: </b>
       <div className={s.main}>
 
-        <div>{Object.keys(profile.contacts).map(key => {
-          return <Contact contactTitle={key} contactValue={profile.contacts[key]}/>
+        <div>{Object.keys(profile.contacts).map((key, index) => {
+          return <Contact contactTitle={key} key={index} contactValue={profile.contacts[key]}/>
         })}</div>
       </div>
         {isOwner && <div>
@@ -57,7 +57,7 @@ const Profileinfo = ({profile, updateStatus, status, isOwner, SavePhoto, SavePro
             <div className={s.main}><img src={profile.photos.large != null ? profile.photos.large : photoProfile}
                                          alt=""/>
 
-                {isOwner && <ProfileStatus status={status} updateStatus={updateStatus}/>}
+                <ProfileStatus status={status} updateStatus={updateStatus}/>
             </div>
             {isOwner &&
             <div><input className={s.setPhotoInput} type={"file"} id='file' accept="image/*"
